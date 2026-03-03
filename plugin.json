@@ -1,0 +1,12 @@
+{
+  "name": "my-voice",
+  "description": "Personal writing voice agent and skill. Transforms AI-generated text to match the user's authentic writing style.",
+  "version": "1.0.0",
+  "author": {
+    "name": "ekroon"
+  },
+  "repository": "https://github.com/ekroon/my-voice",
+  "keywords": ["writing", "voice", "style", "tone"],
+  "agents": "agents/",
+  "skills": ["skills/"]
+}
