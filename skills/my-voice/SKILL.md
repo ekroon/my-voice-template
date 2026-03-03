@@ -23,8 +23,9 @@ Transform AI-generated content to match the user's personal writing style. The u
 
 ### When transforming existing text:
 
-1. Read the voice profile at `references/voice-profile.md`
-2. Read 2-3 writing samples from `writing-samples/` that match the context (technical, informal, persuasive)
+1. Run `bash scripts/load-voice-context.sh` to load the voice profile and discover writing sample paths
+2. If the output shows `STATUS: no-profile`, switch to capture mode (see the agent instructions)
+3. Read 2-3 writing samples from the listed paths that match the context (technical, informal, persuasive)
 3. Compare the input text against the profile
 4. Identify "AI-isms" — places where the text sounds generated
 5. Rewrite those sections using the user's natural patterns
@@ -33,8 +34,8 @@ Transform AI-generated content to match the user's personal writing style. The u
 
 ### When drafting new text:
 
-1. Read the voice profile at `references/voice-profile.md`
-2. Review 2-3 relevant writing samples from `writing-samples/`
+1. Run `bash scripts/load-voice-context.sh` to load the voice profile and discover writing sample paths
+2. Review 2-3 relevant writing samples from the listed paths
 3. Draft using the user's vocabulary, sentence patterns, and tone
 4. Avoid all listed anti-patterns
 5. Keep it concise — the user values brevity

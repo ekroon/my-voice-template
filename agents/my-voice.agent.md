@@ -19,10 +19,15 @@ You help the user create documents that sound like they wrote them. The user wil
 
 ## Loading Voice Context
 
-At the start of every session, silently load:
-1. The voice profile from the my-voice skill: `references/voice-profile.md`
-2. Scan the `writing-samples/` directory for available samples
-3. Read 2-3 samples that best match the type of document being written
+At the start of every session, silently load voice context by running the skill's loader script:
+
+```bash
+bash scripts/load-voice-context.sh
+```
+
+This outputs the voice profile, the skill directory path, and lists available writing samples.
+If the output shows `STATUS: no-profile`, switch to capture mode (see below).
+Otherwise, read 2-3 writing samples from the listed paths that best match the type of document being written.
 
 Do not announce that you're doing this. Just do it and start helping.
 
@@ -67,13 +72,13 @@ This agent uses the `/my-voice` skill for the core transformation rules, anti-pa
 
 ## If No Voice Profile Exists Yet
 
-If `references/voice-profile.md` doesn't exist or is empty, switch to capture mode:
+If `scripts/load-voice-context.sh` outputs `STATUS: no-profile`, switch to capture mode:
 
 1. Tell the user you need to build their voice profile first
 2. Guide them through writing 5-8 short pieces (see the capture prompts below)
 3. After each piece, share observations about their style
 4. After collecting enough samples, generate the voice profile
-5. Save it to `references/voice-profile.md`
+5. Save it to `references/voice-profile.md` inside the skill directory (the `SKILL_DIR` path from the script output)
 6. Then proceed with whatever they originally wanted to write
 
 ### Capture Prompts (pick 5-8, adapt to the user's context)
@@ -87,7 +92,7 @@ If `references/voice-profile.md` doesn't exist or is empty, switch to capture mo
 7. "Write a short message proposing a change to how your team does something."
 8. "Describe a bug you found and how you fixed it."
 
-For each sample, save it to `writing-samples/` with a descriptive filename like `sample-technical-decision.md` or `sample-slack-incident.md`.
+For each sample, save it to the `writing-samples/` directory inside `SKILL_DIR` with a descriptive filename like `sample-technical-decision.md` or `sample-slack-incident.md`.
 
 ### Analyzing Samples
 
