@@ -13,7 +13,7 @@ description: >
 
 ## Purpose
 
-Transform AI-generated content to match the user's personal writing style. The user is a non-native English speaker who values authenticity over polish. The goal is NOT perfect corporate English — it's text that sounds like a real person wrote it.
+Transform AI-generated content to match the user's personal writing style. The goal is NOT perfect corporate English — it's text that sounds like a real person wrote it.
 
 ## Core Principle
 
